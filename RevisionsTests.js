@@ -21,11 +21,11 @@ module.exports = {
 
 			// Update the title three times
 			.type('#title', 'first title update') // Add a default title
-			.click('#publish') // Publish the post
+			.click('#publish') // Update the post
 			.type('#title', 'second title update') // Add a default title
-			.click('#publish') // Publish the post
+			.click('#publish')
 			.type('#title', 'third title update') // Add a default title
-			.click('#publish') // Publish the post
+			.click('#publish')
 
 			// Go to the revisions screen
 			.click('.num-revisions a')
@@ -107,7 +107,7 @@ module.exports = {
 			.click('.from-handle')
 			// Move the left handle
 
-			.screenshot('test.png')
+			.screenshot('test.png') // Record the state image for testing
 
 			// Tear down time, lets delete the post
 
@@ -116,7 +116,6 @@ module.exports = {
 
 			// Move to trash
 			.click('a.submitdelete')
-
 
 			// Empty the trash
 			.click('.trash a')
