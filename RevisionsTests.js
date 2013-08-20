@@ -7,9 +7,9 @@ module.exports = {
 
 			// Open the WordPress admin login
 			.open( 'http://local.wordpress-trunk.dev/wp-login.php' )
-			.type( '#user_login', 'admin' )		// Using default vvvagrant username
-			.type( '#user_pass', 'password' )	// Default vvv password
-			.submit( '#loginform' )				// Log in!
+			.type( '#user_login', 'admin' ) // Using default vvvagrant username
+			.type( '#user_pass', 'password' ) // Default vvv password
+			.submit( '#loginform' ) // Log in!
 
 			// Once logged in, go to the post page, and add a new post
 			.open( 'http://local.wordpress-trunk.dev/wp-admin/post.php' )
@@ -17,11 +17,11 @@ module.exports = {
 
 			// Add a title, publish
 			.type( '#title', 'Revisions test' ) // Add a default title
-			.click( '#publish' )				// Publish the post
+			.click( '#publish' ) // Publish the post
 
 			// Update the title three times
 			.type( '#title', 'first title update' ) // Update title
-			.click( '#publish' )					// Update the post
+			.click( '#publish' ) // Update the post
 
 			// And repeat two more times
 			.type( '#title', 'second title update' )
@@ -108,10 +108,14 @@ module.exports = {
 			// Move the left handle one to the left
 			.click( '.from-handle' )
 			// Move the left handle
+			//.sendKeys( 'body','\uE014' ) // Left arrow key press (fails?)
+
 
 			.screenshot( 'test.png' ) // Record the state image for testing
 
-			// Tear down time, lets delete the post
+			/**
+			 * Tear down time, delete the post
+			 */
 
 			// Go back to post
 			.click( '.long-header a' )
@@ -122,7 +126,6 @@ module.exports = {
 			// Empty the trash
 			.click( '.trash a' )
 			.click( '#delete_all' )
-
 
 			.done();
 	}
