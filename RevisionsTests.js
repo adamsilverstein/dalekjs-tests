@@ -108,9 +108,9 @@ module.exports = {
 			// Move the left handle one to the left
 			.click( '.from-handle' )
 			// Move the left handle
-			//.sendKeys( 'body','\uE014' ) // Left arrow key press (fails?)
-
-
+			//.type( '.from-handle', '\uE012' ) // Left arrow key press (fails?)
+			.click( '.wp-slider ' )
+			
 			.screenshot( 'test.png' ) // Record the state image for testing
 
 			/**
