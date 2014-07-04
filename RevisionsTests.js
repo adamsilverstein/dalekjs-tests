@@ -18,19 +18,24 @@ module.exports = {
 			// Add a title, publish
 			.type( '#title', 'Revisions test' ) // Add a default title
 			.click( '#publish' ) // Publish the post
-
+			.wait( 1000 )
 			// Update the title three times
 			.type( '#title', 'first title update' ) // Update title
 			.click( '#publish' ) // Update the post
+			.wait( 1000 )
 
 			// And repeat two more times
 			.type( '#title', 'second title update' )
 			.click( '#publish' )
+			.wait( 1000 )
+
 			.type( '#title', 'third title update' )
 			.click( '#publish' )
+			.wait( 1000 )
+
 
 			// Go to the revisions screen
-			.click( '.num-revisions a' )
+			.click( '.misc-pub-revisions a' )
 			.screenshot( 'revisions_screen.png' ) // take a screenshot to verify state
 
 
@@ -110,7 +115,7 @@ module.exports = {
 			// Move the left handle
 			//.type( '.from-handle', '\uE012' ) // Left arrow key press (fails?)
 			.click( '.wp-slider ' )
-			
+
 			.screenshot( 'test.png' ) // Record the state image for testing
 
 			/**
