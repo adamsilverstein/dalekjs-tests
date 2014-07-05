@@ -16,28 +16,31 @@ module.exports = {
 			.click( 'a.add-new-h2' )
 
 			// Add a title, publish
+			.execute( function () { jQuery( '#title' ).select(); })
 			.type( '#title', 'Revisions test' ) // Add a default title
 			.click( '#publish' ) // Publish the post
-			.wait( 1000 )
+			.wait( 500 )
 			// Update the title three times
+			.execute( function () { jQuery( '#title' ).select(); })
 			.type( '#title', 'first title update' ) // Update title
 			.click( '#publish' ) // Update the post
-			.wait( 1000 )
+			.wait( 500 )
 
 			// And repeat two more times
+			.execute( function () { jQuery( '#title' ).select(); })
 			.type( '#title', 'second title update' )
 			.click( '#publish' )
-			.wait( 1000 )
+			.wait( 500 )
 
+			.execute( function () { jQuery( '#title' ).select(); })
 			.type( '#title', 'third title update' )
 			.click( '#publish' )
-			.wait( 1000 )
+			.wait( 500 )
 
 
 			// Go to the revisions screen
 			.click( '.misc-pub-revisions a' )
-			.screenshot( 'revisions_screen.png' ) // take a screenshot to verify state
-
+			//.screenshot( 'revisions_screen.png' ) // take a screenshot to verify state
 
 			.assert.chain() // Chain some assertions
 				// Verify correct diff showing when loaded
@@ -58,7 +61,7 @@ module.exports = {
 				.text( '.revisions-diff .diff .diff-addedline' ).is( 'second title update' )
 
 				// The restore button should be enabled
-				.enabled( '.restore-revision .button .button-primary', 'Restore button is enabled' )
+				.enabled( '.restore-revision.button.button-primary', 'Restore button is enabled' )
 			.end()
 
 			// Click to view the previous revision
@@ -69,7 +72,6 @@ module.exports = {
 				.text( '.revisions-diff .diff .diff-deletedline' ).is( 'Revisions test' )
 				.text( '.revisions-diff .diff .diff-addedline' ).is( 'first title update' )
 			.end()
-
 			// Click to view the previous revision
 			.click( '.revisions-previous .button' )
 
